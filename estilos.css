@@ -1,9 +1,13 @@
 :root {
-    --color-primario: #1A3636;
-    --color-secundario: #04534C;
+    --color-primario: #1A3636; 
+    --color-secundario: #04534C; 
     --color-terciario: #677D6A;
-    --color-hover: #D6BD98;
-
+    --color-hover: #D6BD98; 
+    --color-texto: #333; 
+    --color-fondo: #f9f9f9; 
+    --color-borde: #ccc; 
+    --color-desencriptado: #ffffff;;
+    
     --fuente-monserrat: 'Montserrat', sans-serif;
     --fuente-krona: 'Krona One', sans-serif;
 }
@@ -17,9 +21,10 @@
 
 body {
     font-family: var(--fuente-monserrat);
-    color: #333;
+    color: var(--color-texto);
     line-height: 1.6;
     padding: 20px;
+    background-color: var(--color-fondo); /* Aplicar color de fondo */
 }
 
 header {
@@ -33,56 +38,53 @@ h1 {
     font-family: var(--fuente-krona);
 }
 
-p {
-    font-size: 1.2rem;
-    color: var(--color-secundario);
-    margin-bottom: 15px;
-    font-family: var(--fuente-krona);
-}
-
 /* Estilos de la imagen */
 .candado {
-    max-width: 150px; /* Ajusta el tamaño máximo de la imagen */
+    max-width: 150px;
     height: auto;
-    display: block; /* Asegura que el margen funcione correctamente */
-    margin: 0 auto; /* Centra horizontalmente */
+    display: block;
+    margin: 0 auto;
 }
 
 /* Contenedor de resultado */
 .resultado-container {
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Centra verticalmente */
-    align-items: center; /* Centra horizontalmente */
-    text-align: center; /* Centra el texto dentro del contenedor */
-    height: 100%; /* Asegura que el contenedor ocupe todo el alto disponible */
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100%;
 }
 
 /* Mensaje y texto de resultado */
 #mensaje-no-encontrado {
-    font-weight: bold; /* Aplica negrilla */
-    color: #333;
+    font-weight: bold;
+    color: var(--color-texto);
     margin-bottom: 10px;
     font-family: var(--fuente-monserrat);
 }
 
 /* Estilo para el cuadro de resultado */
 #resultado {
-    width: 100%; /* Puedes ajustar este valor si quieres un ancho específico */
-    max-width: 800px; /* Ajusta el máximo ancho del cuadro si es necesario */
-    height: 300px; /* Ajusta la altura del cuadro si es necesario */
+    width: 100%;
+    max-width: 800px;
+    height: 300px;
     padding: 10px;
     border-radius: 8px;
-    border: 2px solid var(--color-terciario);
     font-size: 1rem;
     font-family: var(--fuente-monserrat);
-    color: #333;
-    text-align: center; /* Centra el texto dentro del cuadro */
-    overflow: auto; /* Muestra una barra de desplazamiento si el contenido excede el área visible */
-    background-color: #f9f9f9; /* Color de fondo para mayor claridad */
-    display: none; /* Ocultado inicialmente */
+    color: var(--color-texto);
+    text-align: left;
+    overflow: auto;
+    display: none;
 }
 
+#copiar {
+    display: none;
+    gap: 10px;
+    margin-top: 10px;
+    width: 336px;
+}
 
 /* Contenedor principal */
 .container {
@@ -102,16 +104,10 @@ p {
     gap: 20px;
     border-radius: 16px;
     padding: 20px;
+    width: 100%;
 }
 
 .h2 {
-    font-size: 1.2rem;
-    color: var(--color-secundario);
-    margin-bottom: 15px;
-    font-family: var(--fuente-krona);
-}
-
-.input-section h2 {
     font-size: 1.2rem;
     color: var(--color-secundario);
     margin-bottom: 15px;
@@ -123,7 +119,7 @@ p {
     height: 48px;
     padding: 10px;
     margin: 10px 0 200px 0;
-    border: none;
+    border: 2px solid var(--color-borde); /* Añadir borde visible */
     border-radius: 8px;
     font-family: var(--fuente-monserrat);
 }
@@ -154,18 +150,32 @@ button:hover {
     background-color: var(--color-hover);
 }
 
-/* Sección de resultado */
+.boton {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    /*cambiar color*/
+    background-color: var(--color-desencriptado);
+    border: 2px solid var(--color-primario);
+    color: var(--color-primario);
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-family: var(--fuente-monserrat);
+    font-weight: bold;
+}
+
 .output-section {
     background: white;
     border-radius: 16px;
     padding: 20px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    width: 800px;
+    width: 50%;
     height: 400px;
 }
 
 /* Pie de página */
-footer {
+.footer {
     text-align: center;
     padding: 10px;
     background-color: var(--color-primario);
@@ -204,8 +214,8 @@ footer {
 }
 
 /* Estilos para pantallas grandes */
-@media (min-width: 1024px) and (max-width: 1199px){
-    .input-section, .output-section , .buttons{
+@media (min-width: 1024px) and (max-width: 1199px) {
+    .input-section, .output-section, .buttons {
         width: 100%;
         margin: 20px;
         margin-bottom: 20px;

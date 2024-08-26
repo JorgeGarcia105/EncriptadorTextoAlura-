@@ -20,7 +20,7 @@
             <input class="texto" type="text" id="texto-encriptar/desencriptar" placeholder="Ingresa el texto aquí" required>
             <div class="buttons">
                 <button id="encriptar">Encriptar</button>
-                <button id="desencriptar">Desencriptar</button>
+                <button class="boton" id="desencriptar">Desencriptar</button>
             </div>
         </div>
         <div class="output-section">
@@ -28,10 +28,13 @@
                 <img src="assepts/Muñeco.png" alt="Candado" class="candado">
                 <p id="mensaje-no-encontrado">Ningún mensaje fue encontrado</p>
                 <p id="resultado" class="resultado">Ingresa el texto que deseas encriptar o desencriptar.</p>
+
+                <!-- Añadir un botón de copiar oculto -->
+                <button class="boton" id="copiar">Copiar</button>
             </div>
         </div>
     </div>
-    <footer>
+    <footer class="footer">
         <p>&copy; 2024 Jorge Ivan Garcia Torres. Todos los derechos reservados.</p>
     </footer>
 

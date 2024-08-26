@@ -20,25 +20,47 @@ function desencriptarTexto(texto) {
     return textoDesencriptado;
 }
 
-// Agregar eventos a los botones
-document.getElementById("encriptar").addEventListener("click", function() {
-    let texto = document.getElementById("texto-encriptar/desencriptar").value;
-    let resultado = encriptarTexto(texto);
+// Selección de elementos
+const encriptarBtn = document.getElementById("encriptar");
+const desencriptarBtn = document.getElementById("desencriptar");
+const copiarBtn = document.getElementById("copiar");
+const resultado = document.getElementById("resultado");
+const textoInput = document.getElementById("texto-encriptar/desencriptar");
 
-    // Ocultar la imagen y el mensaje de "Ningún mensaje fue encontrado", mostrar el resultado
-    document.querySelector(".candado").style.display = 'none';
-    document.getElementById("mensaje-no-encontrado").style.display = 'none';
-    document.getElementById("resultado").style.display = 'block';
-    document.getElementById("resultado").textContent = resultado;
+// Evento de clic para el botón de encriptar
+encriptarBtn.addEventListener("click", function() {
+    let texto = textoInput.value;
+    if (texto) {
+        let textoEncriptado = encriptarTexto(texto);
+        resultado.textContent = textoEncriptado; // Actualizar el resultado con el texto encriptado
+        resultado.style.display = 'block'; // Mostrar el cuadro de resultado
+        document.querySelector(".candado").style.display = 'none'; // Ocultar la imagen
+        document.getElementById("mensaje-no-encontrado").style.display = 'none'; // Ocultar el mensaje
+        mostrarBotonCopiar(); // Mostrar el botón de copiar
+    }
 });
 
-document.getElementById("desencriptar").addEventListener("click", function() {
-    let texto = document.getElementById("texto-encriptar/desencriptar").value;
-    let resultado = desencriptarTexto(texto);
+// Evento de clic para el botón de desencriptar
+desencriptarBtn.addEventListener("click", function() {
+    let texto = textoInput.value;
+    if (texto) {
+        let textoDesencriptado = desencriptarTexto(texto);
+        resultado.textContent = textoDesencriptado; // Actualizar el resultado con el texto desencriptado
+        resultado.style.display = 'block'; // Mostrar el cuadro de resultado
+        document.querySelector(".candado").style.display = 'none'; // Ocultar la imagen
+        document.getElementById("mensaje-no-encontrado").style.display = 'none'; // Ocultar el mensaje
+        mostrarBotonCopiar(); // Mostrar el botón de copiar
+    }
+});
 
-    // Ocultar la imagen y el mensaje de "Ningún mensaje fue encontrado", mostrar el resultado
-    document.querySelector(".candado").style.display = 'none';
-    document.getElementById("mensaje-no-encontrado").style.display = 'none';
-    document.getElementById("resultado").style.display = 'block';
-    document.getElementById("resultado").textContent = resultado;
+// Función para mostrar el botón copiar
+function mostrarBotonCopiar() {
+    copiarBtn.style.display = "block";
+}
+
+// Evento de clic para el botón de copiar
+copiarBtn.addEventListener("click", function() {
+    navigator.clipboard.writeText(resultado.textContent).then(() => {
+        alert("Texto copiado al portapapeles!");
+    });
 });
