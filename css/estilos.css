@@ -1,0 +1,225 @@
+:root {
+    --color-primario: #1A3636;
+    --color-secundario: #04534C;
+    --color-terciario: #677D6A;
+    --color-hover: #D6BD98;
+
+    --fuente-monserrat: 'Montserrat', sans-serif;
+    --fuente-krona: 'Krona One', sans-serif;
+}
+
+/* Estilos básicos y reseteo */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--fuente-monserrat);
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h1 {
+    color: var(--color-primario);
+    font-size: 2rem;
+    font-family: var(--fuente-krona);
+}
+
+p {
+    font-size: 1.2rem;
+    color: var(--color-secundario);
+    margin-bottom: 15px;
+    font-family: var(--fuente-krona);
+}
+
+/* Estilos de la imagen */
+.candado {
+    max-width: 150px; /* Ajusta el tamaño máximo de la imagen */
+    height: auto;
+    display: block; /* Asegura que el margen funcione correctamente */
+    margin: 0 auto; /* Centra horizontalmente */
+}
+
+/* Contenedor de resultado */
+.resultado-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centra verticalmente */
+    align-items: center; /* Centra horizontalmente */
+    text-align: center; /* Centra el texto dentro del contenedor */
+    height: 100%; /* Asegura que el contenedor ocupe todo el alto disponible */
+}
+
+/* Mensaje y texto de resultado */
+#mensaje-no-encontrado {
+    font-weight: bold; /* Aplica negrilla */
+    color: #333;
+    margin-bottom: 10px;
+    font-family: var(--fuente-monserrat);
+}
+
+/* Estilo para el cuadro de resultado */
+#resultado {
+    width: 100%; /* Puedes ajustar este valor si quieres un ancho específico */
+    max-width: 800px; /* Ajusta el máximo ancho del cuadro si es necesario */
+    height: 300px; /* Ajusta la altura del cuadro si es necesario */
+    padding: 10px;
+    border-radius: 8px;
+    border: 2px solid var(--color-terciario);
+    font-size: 1rem;
+    font-family: var(--fuente-monserrat);
+    color: #333;
+    text-align: center; /* Centra el texto dentro del cuadro */
+    overflow: auto; /* Muestra una barra de desplazamiento si el contenido excede el área visible */
+    background-color: #f9f9f9; /* Color de fondo para mayor claridad */
+    display: none; /* Ocultado inicialmente */
+}
+
+
+/* Contenedor principal */
+.container {
+    display: flex;
+    gap: 20px;
+    flex-direction: row;
+    justify-content: center;
+    border-radius: 16px;
+    padding: 20px;
+}
+
+/* Sección de entrada y salida */
+.input-section {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    gap: 20px;
+    border-radius: 16px;
+    padding: 20px;
+}
+
+.h2 {
+    font-size: 1.2rem;
+    color: var(--color-secundario);
+    margin-bottom: 15px;
+    font-family: var(--fuente-krona);
+}
+
+.input-section h2 {
+    font-size: 1.2rem;
+    color: var(--color-secundario);
+    margin-bottom: 15px;
+    font-family: var(--fuente-krona);
+}
+
+.input-section input {
+    width: 100%;
+    height: 48px;
+    padding: 10px;
+    margin: 10px 0 200px 0;
+    border: none;
+    border-radius: 8px;
+    font-family: var(--fuente-monserrat);
+}
+
+/* Botones */
+.buttons {
+    display: flex;
+    flex-direction: row;
+    width: 680px;
+    gap: 10px;
+    justify-content: space-between;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--color-primario);
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-family: var(--fuente-monserrat);
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: var(--color-hover);
+}
+
+/* Sección de resultado */
+.output-section {
+    background: white;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 800px;
+    height: 400px;
+}
+
+/* Pie de página */
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: var(--color-primario);
+    color: white;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    font-family: var(--fuente-monserrat);
+}
+
+/* Estilos para dispositivos móviles */
+@media (max-width: 767px) {
+    .container, .buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .input-section, .output-section, .buttons {
+        width: 90%;
+        margin-bottom: 20px;
+    }
+}
+
+/* Estilos para tabletas */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .container, .buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .input-section, .output-section, .buttons {
+        width: 90%;
+        margin-bottom: 20px;
+        margin: 2rem;
+    }
+}
+
+/* Estilos para pantallas grandes */
+@media (min-width: 1024px) and (max-width: 1199px){
+    .input-section, .output-section , .buttons{
+        width: 100%;
+        margin: 20px;
+        margin-bottom: 20px;
+    }
+}
+
+/* Estilos para pantallas extra grandes */
+@media (min-width: 1200px) {
+    .container {
+        max-width: 2400px;
+    }
+
+    .input-section, .output-section {
+        width: 100%;
+        margin: 20px;
+    }
+}
